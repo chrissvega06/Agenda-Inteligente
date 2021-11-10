@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "699099006357",
+    "project_id": "agendainteligente-f5989",
+    "storage_bucket": "agendainteligente-f5989.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699099006357:android:f5645886dc6c042cdee29c",
+        "android_client_info": {
+          "package_name": "com.example.agendainteligente"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "699099006357-83gmcngksjqe5g9l3co405mqs9kp1617.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAs8_DfKtaps1ddEJfF4Fvq3THS3pspmZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "699099006357-83gmcngksjqe5g9l3co405mqs9kp1617.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
