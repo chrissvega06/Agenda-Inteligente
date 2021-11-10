@@ -108,7 +108,10 @@ public class MainActivity extends AppCompatActivity {
                 if (firebaseUser != null) {
 
                     finish();
-                    startActivity(new Intent(MainActivity.this, interfaz_seguridad.class));
+                    //startActivity(new Intent(MainActivity.this, interfaz_seguridad.class));
+                    //PARA LA PRUEBA IRA A LA INTERFAZ PRINCIPAL DE NOTAS
+                    startActivity(new Intent(MainActivity.this, interfaz_notas.class));
+                    Toast.makeText(MainActivity.this, "Se ingreso a la interfaz de seguridad", Toast.LENGTH_LONG).show();
                     finish();
 
                 }else {
@@ -119,5 +122,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void newpassword (View view){
+        Intent intent = new Intent(this, interfaz_recuperar_password.class );
+        startActivity(intent);
+    }
 
     }

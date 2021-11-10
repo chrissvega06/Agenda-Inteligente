@@ -11,10 +11,10 @@
         android:id="@+id/gifImageView2"
         android:layout_width="match_parent"
         android:layout_height="32dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="40dp"
         android:src="@drawable/idregistrar_usuario"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,6 +25,7 @@
         android:layout_marginTop="150dp"
         android:ems="10"
         android:hint="Correo electrónico"
+
         android:inputType="textEmailAddress"
         android:textColor="#4E4A4A"
         android:textColorHint="#4E4A4A"
@@ -63,7 +64,7 @@
         android:layout_height="55dp"
         android:layout_marginStart="1dp"
         android:layout_marginBottom="1dp"
-        android:tint="#FA0707"
+        android:tint="#202054"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/ic_menu_revert" />
@@ -85,6 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="CREAR USUARIO"
+        android:backgroundTint="#202054"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/id_password_voice" />

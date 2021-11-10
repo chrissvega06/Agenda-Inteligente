@@ -8,11 +8,19 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AgendaInteligente">
-        <activity android:name=".interfaz_seguridad"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity android:name=".interfaz_recuperar_password"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".interfaz_cambiar_email"></activity>
+        <activity android:name=".interfaz_cerrar_sesion" />
+        <activity android:name=".interfaz_perfil" />
+        <activity android:name=".interfaz_crear_nota" />
+        <activity android:name=".interfaz_notas" />
+        <activity android:name=".Dashboard" />
+        <activity
+            android:name=".interfaz_seguridad"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".interfaz_recuperar_password"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".interfaz_Registrar_usuario"
             android:theme="@style/Theme.AppCompat.NoActionBar">
