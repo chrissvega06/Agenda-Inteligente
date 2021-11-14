@@ -42,12 +42,14 @@ public class interfaz_Registrar_usuario extends AppCompatActivity {
     TextView password_capturada;
     ImageView regresar_menu;
     EditText email_capturado;
+    EditText password_correo;
     ImageView mirar_password;
     DatabaseReference databaseReference;
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth firebaseAuth;
     Button crear_usuario;
     ImageView boton_info;
+    ImageView boton_info2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +60,10 @@ public class interfaz_Registrar_usuario extends AppCompatActivity {
         regresar_menu = findViewById(R.id.id_return_menu);
         mirar_password = findViewById(R.id.id_see_password);
         email_capturado = findViewById(R.id.id_email_new);
+        password_correo = findViewById(R.id.id_password_email);
         crear_usuario = findViewById(R.id.id_usuario_new_save);
         boton_info = findViewById(R.id.id_info);
+        boton_info2 = findViewById(R.id.id_info2);
         mirar_password.setVisibility(View.GONE);
         if(varClave!=null)
         {
@@ -98,7 +102,7 @@ public class interfaz_Registrar_usuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder alerta = new AlertDialog.Builder(interfaz_Registrar_usuario.this);
-                alerta.setMessage("El correo que registraras será utilizado para tu seguirdad, ya que si requieres de un cambio de contraseña por alguna razón podemos restablecer tu contraseña, además se usara tu huella dactilar como medida de seguirdad para ingresar posteriormente a tu agenda.").setCancelable(false).setPositiveButton("Estoy de acuerdo", new DialogInterface.OnClickListener() {
+                alerta.setMessage("El correo que registraras será utilizado para tu seguridad, ya que si requieres de un cambio de contraseña por alguna razón podemos restablecer tu contraseña, además se usara tu huella dactilar como medida de seguirdad para ingresar posteriormente a tu agenda.").setCancelable(false).setPositiveButton("Estoy de acuerdo", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                             }
@@ -106,6 +110,23 @@ public class interfaz_Registrar_usuario extends AppCompatActivity {
                 );
                 AlertDialog titulo = alerta.create();
                 titulo.setTitle("Información del correo");
+                titulo.show();
+
+            }
+        });
+
+        boton_info2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alerta = new AlertDialog.Builder(interfaz_Registrar_usuario.this);
+                alerta.setMessage("Esta contraseña es unicamente para autentificar tu email, ya que te mandaremos un correo de verificación.").setCancelable(false).setPositiveButton("Estoy de acuerdo", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        }
+                );
+                AlertDialog titulo = alerta.create();
+                titulo.setTitle("Información de contraseña de correo");
                 titulo.show();
 
             }
@@ -154,13 +175,19 @@ public class interfaz_Registrar_usuario extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
         String id_correo = email_capturado.getText().toString();
-        String id_password_voz_capturada = varClave;
+        String id_contra_correo = password_correo.getText().toString();
+        String id_password_voz = varClave;
         if(TextUtils.isEmpty(id_correo))
         {
             Toast.makeText(interfaz_Registrar_usuario.this, "Por favor ingresa un correo.", Toast.LENGTH_LONG).show();
             return;
         }
-        if(TextUtils.isEmpty(id_password_voz_capturada))
+        if(TextUtils.isEmpty(id_contra_correo))
+        {
+            Toast.makeText(interfaz_Registrar_usuario.this, "Por favor ingresa una contraseña de correo.", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(TextUtils.isEmpty(id_password_voz))
         {
             Toast.makeText(interfaz_Registrar_usuario.this, "Por favor ingresa una contraseña de voz.", Toast.LENGTH_LONG).show();
             return;
@@ -183,7 +210,7 @@ public class interfaz_Registrar_usuario extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        firebaseAuth.createUserWithEmailAndPassword(id_correo, id_password_voz_capturada.trim()).addOnCompleteListener(interfaz_Registrar_usuario.this, new OnCompleteListener<AuthResult>() {
+                        firebaseAuth.createUserWithEmailAndPassword(id_correo, id_contra_correo).addOnCompleteListener(interfaz_Registrar_usuario.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
 
@@ -197,12 +224,14 @@ public class interfaz_Registrar_usuario extends AppCompatActivity {
                                     //Volvemos a declarar los strings
                                     String uid = user.getUid();
                                     String correo = id_correo;
-                                    String contra = id_password_voz_capturada.trim();
+                                    String contra = id_contra_correo;
+                                    String voz_capturada = id_password_voz;
 
                                     //LLenamos la base de datos con los datos obtenidos anteriormente
                                     databaseReference = FirebaseDatabase.getInstance().getReference("Usuarios registrados/" + uid);
                                     databaseReference.child("Correo").setValue(correo);
-                                    databaseReference.child("Contraseña").setValue(contra);
+                                    databaseReference.child("Contraseña de correo").setValue(contra);
+                                    databaseReference.child("Contraseña de voz").setValue(voz_capturada);
                                     startActivity(new Intent(interfaz_Registrar_usuario.this, MainActivity.class));
                                     finish();
                                     Toast.makeText(getApplicationContext(), "Se ha creado exitosamente el usuario con el correo " + correo + ".\nAhora debes confirmar tu cuenta en tu correo.", Toast.LENGTH_LONG).show();

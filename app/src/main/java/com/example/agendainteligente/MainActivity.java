@@ -48,7 +48,9 @@ public class MainActivity extends AppCompatActivity {
         usuario_nuevo = findViewById(R.id.id_button_usernew);
         ingresar_usuario = findViewById(R.id.id_button_loginacess);
         firebaseAuth = FirebaseAuth.getInstance();
-        inicialize();
+
+      inicialize();
+
         usuario_nuevo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                     //startActivity(new Intent(MainActivity.this, interfaz_seguridad.class));
                     //PARA LA PRUEBA IRA A LA INTERFAZ PRINCIPAL DE NOTAS
-                    startActivity(new Intent(MainActivity.this, interfaz_notas.class));
+                    startActivity(new Intent(MainActivity.this, interfaz_seguridad.class));
                     Toast.makeText(MainActivity.this, "Se ingreso a la interfaz de seguridad", Toast.LENGTH_LONG).show();
                     finish();
 
@@ -124,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void newpassword (View view){
         Intent intent = new Intent(this, interfaz_recuperar_password.class );
+        finish();
         startActivity(intent);
     }
 

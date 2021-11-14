@@ -4,6 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#202054"
     tools:context=".interfaz_seguridad">
 
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/id_banner_seguridad"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginTop="3dp"
+        android:src="@drawable/seguridad_confianza"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/id_microfono"
+        android:layout_width="105dp"
+        android:layout_height="144dp"
+        android:layout_marginTop="20dp"
+        android:onClick="onClickmicro"
+        android:tint="#B205F40B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_text_speak"
+        app:srcCompat="@drawable/icon_voice" />
+
+    <TextView
+        android:id="@+id/id_text_speak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_banner_seguridad" />
 </androidx.constraintlayout.widget.ConstraintLayout>

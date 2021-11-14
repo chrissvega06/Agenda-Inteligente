@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import androidx.annotation.NonNull;
+
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,6 +22,7 @@ public class interfaz_recuperar_password extends AppCompatActivity {
     private Button mButtonCancelResetPassword;
     private  String email ="";
     private FirebaseAuth mAuth;
+    private ImageView regresar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,15 @@ public class interfaz_recuperar_password extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mEditTextEmail = (EditText) findViewById(R.id.id_reset_email);
         mButtonResetPassword = (Button) findViewById(R.id.id_button_continue_reset);
+        regresar = (ImageView) findViewById(R.id.id_return_menu2);
+
+        regresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(interfaz_recuperar_password.this,MainActivity.class));
+                finish();
+            }
+        });
 
         mButtonResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override

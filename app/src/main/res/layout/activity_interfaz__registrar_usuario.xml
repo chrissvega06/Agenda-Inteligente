@@ -22,7 +22,7 @@
         android:id="@+id/id_email_new"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="100dp"
         android:ems="10"
         android:hint="Correo electrónico"
 
@@ -30,6 +30,7 @@
         android:textColor="#4E4A4A"
         android:textColorHint="#4E4A4A"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gifImageView2" />
 
@@ -44,7 +45,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_email_new" />
+        app:layout_constraintTop_toBottomOf="@+id/id_password_email" />
 
     <ImageView
         android:id="@+id/id_password_voice"
@@ -85,8 +86,8 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="CREAR USUARIO"
         android:backgroundTint="#202054"
+        android:text="CREAR USUARIO"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/id_password_voice" />
@@ -95,10 +96,39 @@
         android:id="@+id/id_info"
         android:layout_width="40dp"
         android:layout_height="39dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="5dp"
         android:tint="#95314A20"
-        app:layout_constraintEnd_toEndOf="@+id/id_email_new"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/id_email_new"
         app:layout_constraintTop_toBottomOf="@+id/gifImageView2"
         app:srcCompat="@android:drawable/ic_menu_info_details" />
+
+    <ImageView
+        android:id="@+id/id_info2"
+        android:layout_width="40dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="5dp"
+        android:tint="#95314A20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/id_password_email"
+        app:layout_constraintTop_toBottomOf="@+id/id_info"
+        app:srcCompat="@android:drawable/ic_menu_info_details" />
+
+    <EditText
+        android:id="@+id/id_password_email"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:textColor="#4E4A4A"
+        android:textColorHint="#4E4A4A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_email_new" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
