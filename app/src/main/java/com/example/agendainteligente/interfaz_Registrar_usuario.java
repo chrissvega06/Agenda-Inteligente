@@ -234,7 +234,7 @@ public class interfaz_Registrar_usuario extends AppCompatActivity {
                                     databaseReference.child("Contraseña de voz").setValue(voz_capturada);
                                     startActivity(new Intent(interfaz_Registrar_usuario.this, MainActivity.class));
                                     finish();
-                                    Toast.makeText(getApplicationContext(), "Se ha creado exitosamente el usuario con el correo " + correo + ".\nAhora debes confirmar tu cuenta en tu correo.", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "Usuario creado exitosamente, por favor verifica tu cuenta en tu email", Toast.LENGTH_LONG).show();
 
                                     user.sendEmailVerification();
 

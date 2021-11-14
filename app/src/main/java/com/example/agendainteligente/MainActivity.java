@@ -113,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
                     //startActivity(new Intent(MainActivity.this, interfaz_seguridad.class));
                     //PARA LA PRUEBA IRA A LA INTERFAZ PRINCIPAL DE NOTAS
                     startActivity(new Intent(MainActivity.this, interfaz_seguridad.class));
-                    Toast.makeText(MainActivity.this, "Se ingreso a la interfaz de seguridad", Toast.LENGTH_LONG).show();
                     finish();
 
                 }else {

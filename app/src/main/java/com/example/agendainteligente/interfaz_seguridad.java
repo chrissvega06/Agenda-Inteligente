@@ -1,8 +1,5 @@
 package com.example.agendainteligente;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
@@ -13,6 +10,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.an.biometric.BiometricCallback;
 import com.an.biometric.BiometricManager;
@@ -126,7 +126,7 @@ public class interfaz_seguridad extends AppCompatActivity implements BiometricCa
 
     @Override
     public void onAuthenticationSuccessful() {
-        Toast.makeText(this, "Autentificación correcta.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Huella ingresada: correcta.", Toast.LENGTH_SHORT).show();
         texto_hablar.setVisibility(View.VISIBLE);
         texto_hablar.setText("Toca el micrófono y di tu contraseña de voz");
         microfono.setVisibility(View.VISIBLE);
