@@ -3,7 +3,9 @@ package com.example.agendainteligente;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
@@ -129,4 +131,32 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void Ayuda(View view) {
+        AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
+        alerta.setMessage("Te podemos ayudar, envianos un correo a cualquiera de los siguientes emails y redactanos tu problema" +
+                "\n\n°christopher.suarezvg@uanl.edu.mx"+
+                "\n°mirely.aguilarscd@uanl.edu.mx"+
+                "\n°enrique.rebollosoga@uanl.edu.mx"+
+                "\n°cesar.gonzalezto@uanl.edu.mx"+
+                "\n°carlos.hermosillocnd@uanl.edu.mx").setCancelable(false).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                        startActivity(new Intent(MainActivity.this,MainActivity.class));
+                    }
+                }
+        ).setNegativeButton("", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+                finish();
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(MainActivity.this,MainActivity.class));
+            }
+        });
+        AlertDialog titulo = alerta.create();
+        titulo.setTitle("¿Necesitas ayuda?");
+        titulo.show();
+
+    }
     }
