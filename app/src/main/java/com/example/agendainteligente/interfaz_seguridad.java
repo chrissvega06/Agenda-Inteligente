@@ -186,7 +186,7 @@ public class interfaz_seguridad extends AppCompatActivity implements BiometricCa
                 {
                     for (DataSnapshot ds : snapshot.getChildren()) {
                         String password_voice = ds.child("Contraseña de voz").getValue().toString();
-                        Toast.makeText(interfaz_seguridad.this, password_voice, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(interfaz_seguridad.this, password_voice, Toast.LENGTH_SHORT).show();
                         if(varClave.equals(password_voice))
                         {
                             startActivity(new Intent(interfaz_seguridad.this,interfaz_notas.class));
